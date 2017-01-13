@@ -212,8 +212,8 @@ void errClose(){
  * Add a message to the error file
  * 		msg > Message to add inside the file
  * 		dir >  1 : for the first call inside a function
- *			  -1 : for the last call inside a function
- *			   0 : otherwise
+ * 		      -1 : for the last call inside a function
+ * 		       0 : otherwise
  */
 void err(char msg[], int dir) {
 	int i;
