@@ -41,7 +41,9 @@
 	int max(int a, int b);
 
 	void switchAB(int * a, int * b);
+	int distBetweenAB(int a, int b);
 	int isBetween(int val, int a, int b);
+	float distBetween2Pts(pt2D a, pt2D b);
 	int intervalOverlaping(int a, int b, int c, int d);
 	int mapping(int value, int min, int max, int destMin, int destMax);
 

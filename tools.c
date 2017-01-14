@@ -11,6 +11,7 @@
 */
 
 #include <time.h>
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "tools.h"
@@ -138,6 +139,27 @@ int isBetween(int val, int a, int b) {
 	else return FALSE;
 }
 
+/*
+ * Return the distance between a and b
+ * 		a > The first value
+ * 		b > The second
+ * = the distance, always positive
+ */
+int distBetweenAB(int a, int b){
+	return abs(a - b);
+}
+
+/*
+ * Return the distance between 2 points
+ * 		a > The fisrt point
+ * 		b > The second point
+ * = the distance, always positive
+ */
+float distBetween2Pts(pt2D a, pt2D b){
+	int xDist = distBetweenAB(a.x, b.x);
+	int yDist = distBetweenAB(a.y, b.y);
+	return sqrt(xDist * xDist + yDist * yDist);
+}
 
 /*
  * Test if the two intervals overlaps
