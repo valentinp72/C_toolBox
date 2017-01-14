@@ -2,8 +2,8 @@
 #include "tools.h"
 
 int main(){
-	pt2D a = {0, 0};
-	pt2D b = {-1, -1};
+	pt3D a = {7, 4, 3};
+	pt3D b = {17, 6, 2};
 
-	printf("Distance : %f\n", distBetween2Pts(a, b));
+	printf("Distance : %f\n", distBetween3DPts(a, b));
 }

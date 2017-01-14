@@ -150,15 +150,28 @@ int distBetweenAB(int a, int b){
 }
 
 /*
- * Return the distance between 2 points
+ * Return the distance between 2 2D points
  * 		a > The fisrt point
  * 		b > The second point
  * = the distance, always positive
  */
-float distBetween2Pts(pt2D a, pt2D b){
+float distBetween2DPts(pt2D a, pt2D b){
 	int xDist = distBetweenAB(a.x, b.x);
 	int yDist = distBetweenAB(a.y, b.y);
 	return sqrt(xDist * xDist + yDist * yDist);
+}
+
+/*
+ * Return the distance between 2 3D points
+ * 		a > The fisrt point
+ * 		b > The second point
+ * = the distance, always positive
+ */
+float distBetween3DPts(pt3D a, pt3D b){
+	int xDist = distBetweenAB(a.x, b.x);
+	int yDist = distBetweenAB(a.y, b.y);
+	int zDist = distBetweenAB(a.z, b.z);
+	return sqrt(xDist * xDist + yDist * yDist + zDist * zDist);
 }
 
 /*
