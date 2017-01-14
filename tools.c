@@ -155,7 +155,7 @@ int distBetweenAB(int a, int b){
  * 		b > The second point
  * = the distance, always positive
  */
-float distBetween2DPts(pt2D a, pt2D b){
+float pt2D_Dist(pt2D a, pt2D b){
 	int xDist = distBetweenAB(a.x, b.x);
 	int yDist = distBetweenAB(a.y, b.y);
 	return sqrt(xDist * xDist + yDist * yDist);
@@ -167,12 +167,35 @@ float distBetween2DPts(pt2D a, pt2D b){
  * 		b > The second point
  * = the distance, always positive
  */
-float distBetween3DPts(pt3D a, pt3D b){
+float pt3D_Dist(pt3D a, pt3D b){
 	int xDist = distBetweenAB(a.x, b.x);
 	int yDist = distBetweenAB(a.y, b.y);
 	int zDist = distBetweenAB(a.z, b.z);
 	return sqrt(xDist * xDist + yDist * yDist + zDist * zDist);
 }
+
+/*
+ * Test if the 2D points a and b are equals
+ * 		a > The first point
+ * 		b > The second point
+ * = TRUE if they are equals
+ * = FALSE otherwise
+ */
+int pt2D_equals(pt2D a, pt2D b){
+	return (a.x == b.x && a.y == b.y);
+}
+
+/*
+ * Test if the 3D points a and b are equals
+ * 		a > The first point
+ * 		b > The second point
+ * = TRUE if they are equals
+ * = FALSE otherwise
+ */
+int pt3D_equals(pt3D a, pt3D b){
+	return (a.x == b.x && a.y == b.y && a.z == b.z);
+}
+
 
 /*
  * Test if the two intervals overlaps

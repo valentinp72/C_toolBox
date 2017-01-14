@@ -3,7 +3,8 @@
 
 int main(){
 	pt3D a = {7, 4, 3};
-	pt3D b = {17, 6, 2};
+	pt3D b = {7, 4, 3};
 
-	printf("Distance : %f\n", distBetween3DPts(a, b));
+	printf("Distance : %f\n", pt3D_Dist(a, b));
+	printf("%i\n", pt3D_equals(a, b));
 }
