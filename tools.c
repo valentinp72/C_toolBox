@@ -11,9 +11,12 @@
 */
 
 #include <time.h>
+#include <stdio.h>
 #include <stdlib.h>
+#include "tools.h"
 
-#define FILE_ERROR_NAME[100] = "error.log";
+#define ESC             "\x1b["
+#define FILE_ERROR_NAME "error.log"
 FILE * error;
 int lvlError;
 
@@ -110,12 +113,13 @@ int max(int a, int b) {
 	return b;
 }
 
+
 /*
  * Switch the value of a and b
  * 		a > First value
  * 		b > Second value
  */
-int switchAB(int * a, int * b){
+void switchAB(int * a, int * b){
 	int tmp = *a;
 	*a = *b;
 	*b = tmp;
@@ -135,7 +139,8 @@ int isBetween(int val, int a, int b) {
 }
 
 
-/* Test if the two intervals overlaps
+/*
+ * Test if the two intervals overlaps
  * 		a > inferior bound of the first interval
  * 		b > superior bound of the first interval
  * 		c > inferior bound of the second interval
@@ -282,4 +287,43 @@ int nColsFile(char * file){
 	else return 0;
 
 	return maxCol;
+}
+
+/*
+ * Clear the screen (with ANSI escape codes)
+ */
+void termClear(){
+	printf("\e[1;1H\e[2J");
+}
+
+/*
+ * Go to x and y coords (with ANSI escape codes)
+ */
+void termGoXY(int x, int y){
+	printf("%c[%d;%df", 0x1B, y, x);
+}
+
+/*
+ * Change the text color (with ANSI escape codes)
+ * 		color > The color (see the list in tools.h)
+ */
+void termForegroundColor(t_colors color){
+	printf("%s3%im", ESC, color);
+}
+
+/*
+ * Change the background color (with ANSI escape codes)
+ * 		color > The color (see the list in tools.h)
+ */
+void termBackgroundColor(t_colors color){
+	printf("%s4%im", ESC, color);
+}
+
+/*
+ * Reset both background and foreground colors (with ANSI escape codes)
+ */
+void termResetColors(){
+	termBackgroundColor(COLOR_RESET);
+	termForegroundColor(COLOR_RESET);
+	printf("\n");
 }
