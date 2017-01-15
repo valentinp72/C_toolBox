@@ -49,6 +49,7 @@
 	int pt3D_equals(pt3D a, pt3D b);
 	int intervalOverlaping(int a, int b, int c, int d);
 	int mapping(int value, int min, int max, int destMin, int destMax);
+	float average(int n, ...);
 
 	int  car2val(char car);
 	char up2low(char car);

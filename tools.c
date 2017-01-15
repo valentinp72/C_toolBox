@@ -14,6 +14,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdarg.h>
 #include "tools.h"
 
 #define ESC             "\x1b["
@@ -214,6 +215,25 @@ int intervalOverlaping(int a, int b, int c, int d) {
 		isBetween (d, a, b)
 	) return TRUE;
 	else return FALSE;
+}
+
+/*
+ * Average of a set of ints
+ * 		  n > number of int to calc the average
+ * 		... >  ints to calc the average
+ * = the average
+ */
+float average(int n, ...){
+	va_list args;
+	int i, sum = 0;
+
+	va_start(args, n);
+	for(i = 0 ; i < n ; i++){
+		sum += va_arg(args, int);
+	}
+	va_end(args);
+
+	return sum / (n * 1.0);
 }
 
 
